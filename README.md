@@ -1,16 +1,28 @@
-# Heartbeat-Detecting-Device
-Heartbeat_Monitoring-device
-1st year group project
-The program was implemented to run as a standalone system. It receives signals from the sensor and is analysed by the algorithm. The algorithm follows a set of logical conditions which help to detect accurate human heartbeats.
-Here is the logical flow of the algorithm.
-1) The program starts when the user presses the rotary encoder button.
-2) The algorithm is split into two sections: Determining the mean threshold and Peak detection.
-3) First two seconds of data will be read to determine the mean threshold. The peak detection program starts once the mean threshold is available.
-4) The mean threshold program continuously provides a new value every two seconds.
-5) The peak is determined by the slope deflection method. I.e. The peak is identified when the slope of the tangent line is zero.
-6) Once the first peak is identified the program checks whether the signal value is less than the mean threshold. At this point, the signal value is saved as max value and sample count was saved temporarily.
-7) If the previous logic is unsatisfied, it checks whether the signal value is greater than the previously identified peak value (max value).
-8) If the signal value exceeds the max value, the max value and sample count will be updated with the latest values.
-9) If the signal value goes below the mean threshold level, the peak is confirmed, and sample count is saved permanently, and the max value is set to zero.
-10)This process will run continuously until the user presses the button again to stop the program.
-This is the process of the algorithm, and it filters the noisiness of the signal by avoiding fake peaks. Heartbeat (BPM) is calculated based on the sample count between two peaks. BPM is set to calculate every 5 seconds and it is displayed on the LED display.
+# Heartbeat Monitoring Device
+
+This project was developed as a 1st-year group assignment. The system runs as a standalone device that receives signals from a heartbeat sensor and processes them using a custom algorithm. The algorithm filters noise, detects accurate peaks, and calculates human heartbeats in BPM.
+
+## 🔧 How the Algorithm Works
+
+1. The program starts when the user presses the rotary encoder button.
+2. The algorithm is divided into two main parts:
+   - Determining the mean threshold
+   - Peak detection
+3. The first two seconds of sensor data are used to calculate the initial mean threshold. Peak detection begins once this threshold is available.
+4. The mean threshold is continuously updated every two seconds.
+5. Peaks are detected using the slope deflection method — a peak is identified when the slope of the tangent line becomes zero.
+6. After detecting the first peak, the algorithm checks if the signal value drops below the mean threshold. If so, the current signal value is saved as the max value and the sample count is stored temporarily.
+7. If the signal does not drop below the threshold, the algorithm checks whether the signal value exceeds the previously saved max value.
+8. If the signal exceeds the max value, both the max value and sample count are updated.
+9. When the signal finally drops below the mean threshold, the peak is confirmed. The sample count is saved permanently and the max value is reset to zero.
+10. This process repeats continuously until the user presses the button again to stop the program.
+
+## ❤️ BPM Calculation
+
+The algorithm avoids false peaks by applying logical filtering conditions.  
+BPM is calculated based on the number of samples between two confirmed peaks.  
+The BPM value is updated every 5 seconds and displayed on the LED display.
+
+## 📷 Device Image
+
+(Place your image here once uploaded)
