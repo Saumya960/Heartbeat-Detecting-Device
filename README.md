@@ -25,4 +25,4 @@ The BPM value is updated every 5 seconds and displayed on the LED display.
 
 ## 📷 Device Image
 
-(Place your image here once uploaded)
+Heartbeat Monitoring Device.jpg
